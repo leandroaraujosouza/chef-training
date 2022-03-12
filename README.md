@@ -5,4 +5,4 @@ This repo was created to track my progress with Chef studies. I'll keep notes of
 
 ### Courses
 
-1 - [Understanding Core Chef Principles](chef-training/courses/getting-started-with-chef-fluency.md)
+1 - [Understanding Core Chef Principles](courses/getting-started-with-chef-fluency.md)
