@@ -40,6 +40,30 @@ The process of creating a unified state from multiple independent actions
 - Multiple actions can all be called (e.g. ```action [ :enable, :start ]```)
 - If you don't specify an action, the first (i.e. default) action is called
 
+```ruby
+gem_package 'syntax' do
+     action: install
+     ignore_failure true
+end
+```
+This resource calls a single action. If this action is the first one defined in the resource definition, it is also the default.
+
+```ruby
+gem_package 'apache' do
+     action: [ :enable, :start ]
+     retrieds 3
+end
+```
+This resource calls multiple actions. The order in which the actions are called is also the execution order.
+
+```ruby
+service 'memcached' do
+  action :nothing
+end
+```
+This resource uses the special <code>:nothing</code> action meaning it will not execute unless explicitly called by a different resource
+
+
 ## Understanding Chef Cookbook Structure
 - Recipes: Pattern of resources which define end-state
 - Attributes: Overwrite existing values on nodes
